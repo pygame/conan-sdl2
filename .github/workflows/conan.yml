@@ -13,7 +13,7 @@ on: [push, pull_request]
 
 jobs:
   generate-matrix:
-    name: Generate Build Matrix
+    name: Generate Job Matrix
     runs-on: ubuntu-18.04
     outputs:
       matrix: ${{ steps.set-matrix.outputs.matrix }}
@@ -22,14 +22,16 @@ jobs:
       - uses: actions/setup-python@v1
         with:
           python-version: "3.8"
-      - name: Install Conan
+      - name: Install Package Tools
         run: |
           pip install bincrafters_package_tools
           conan user
-      - name: Generate Build Matrix
+      - name: Generate Job Matrix
         id: set-matrix
         run: |
-          echo "::set-output name=matrix::$(bincrafters-package-tools generate-ci-jobs --platform gha)"
+          MATRIX=$(bincrafters-package-tools generate-ci-jobs --platform gha)
+          echo "${MATRIX}"
+          echo "::set-output name=matrix::${MATRIX}"
   conan:
     needs: generate-matrix
     runs-on: ${{ matrix.config.os }}
