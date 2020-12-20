@@ -186,7 +186,8 @@ class SDL2Conan(ConanFile):
 
     def source(self):
         tools.get(**self.conan_data["sources"][self.version])
-        extracted_dir = "SDL2-" + self.version
+        # extracted_dir = "SDL2-" + self.version
+        extracted_dir = "SDL-0ac2d6bb6c99"
         os.rename(extracted_dir, self._source_subfolder)
 
         if "patches" in self.conan_data and self.version in self.conan_data["patches"]:
