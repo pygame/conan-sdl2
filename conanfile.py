@@ -13,7 +13,7 @@ class SDL2Conan(ConanFile):
     exports_sources = ["CMakeLists.txt", "patches/*"]
     generators = ["cmake", "pkg_config"]
     settings = "os", "arch", "compiler", "build_type"
-    version = "2.0.12"
+    version = "2.0.14"
     options = {
         "shared": [True, False],
         "fPIC": [True, False],

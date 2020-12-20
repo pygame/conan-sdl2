@@ -5,6 +5,9 @@ sources:
   "2.0.12":
     url: "https://www.libsdl.org/release/SDL2-2.0.12.tar.gz"
     sha256: 349268f695c02efbc9b9148a70b85e58cefbbf704abd3e91be654db7f1e2c863
+  "2.0.14":
+    url: "https://www.libsdl.org/tmp/release/SDL2-2.0.14.tar.gz"
+    sha256: a92e917d13030d982a8e2015bd28ec80f5185b5ad8d6f6f587c722f02dd8ff0e
 
 patches:
   "2.0.10":
